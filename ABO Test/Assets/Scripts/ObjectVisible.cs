@@ -41,7 +41,7 @@ public class ObjectVisible : MonoBehaviour
         planes = GeometryUtility.CalculateFrustumPlanes(mainCam);
         if (GeometryUtility.TestPlanesAABB(planes, coll.bounds))//object within frustum
         {
-            //bool anyVisible = false;
+            objVisible = false;
             for (float x = 0; x < 1; x += 0.1f)
             {
                 for (float y = 0; y < 1; y += 0.1f)
@@ -61,16 +61,15 @@ public class ObjectVisible : MonoBehaviour
                             rend.material.color = Color.blue;
                             break;
                         }
-                        else if(objVisible != true)
-                        {
-                            objVisible = false;
-                            //Fetch the Renderer from the GameObject
-                            Renderer rend = GetComponent<Renderer>();
-
-                            rend.material.color = Color.red;
-                        }
                     }
                 }
+            }
+            if (!objVisible)
+            {
+                //Fetch the Renderer from the GameObject
+                Renderer rend = GetComponent<Renderer>();
+
+                rend.material.color = Color.red;
             }
         }
         else//object not within camera frustum

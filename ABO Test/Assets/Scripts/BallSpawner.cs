@@ -19,7 +19,7 @@ public class BallSpawner : MonoBehaviour
         {
             for (int z = -20; z < 20; z++)
             {
-                GameObject spawnBall = Instantiate(ball, new Vector3(x, ball.transform.position.y, z), Quaternion.identity);
+                GameObject spawnBall = Instantiate(ball, new Vector3(x*2f, ball.transform.position.y, z*2f), Quaternion.identity);
                 spawnBall.transform.SetParent(this.transform.parent);
             }
         }

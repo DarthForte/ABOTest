@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class WorldManager : MonoBehaviour
 {
+    public GameObject mainCamParent;
     public Camera mainCam;
     private CameraController camController;
     private List<GameObject> objList;
@@ -17,11 +18,15 @@ public class WorldManager : MonoBehaviour
     {
         objList = new List<GameObject>();
         visList = new List<GameObject>();
+        if (mainCamParent == null)
+        {
+            mainCamParent = GameObject.Find("MainCamParent");
+        }
         if (mainCam == null)
         {
             mainCam = Camera.main;
         }   
-        camController = mainCam.GetComponent<CameraController>();
+        camController = mainCamParent.GetComponent<CameraController>();
         foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Cube"))
         {
             objList.Add(obj);
@@ -46,8 +51,8 @@ public class WorldManager : MonoBehaviour
     IEnumerator StartingAnim()
     {
         float curAnimTime = 0f;
-        Vector3 camOriginPos = mainCam.transform.position;
-        Vector3 camStartPos = new Vector3(0, 20, 0);
+        Vector3 camOriginPos = mainCamParent.transform.position;
+        Vector3 camStartPos = new Vector3(21, 20, -22.5f);
         float camOriginSize = 0f;
         float camStartSize = 0f;
         if (mainCam.orthographic)
@@ -58,7 +63,7 @@ public class WorldManager : MonoBehaviour
         while (curAnimTime < startAnimTime)
         {
             curAnimTime += Time.deltaTime;
-            mainCam.transform.position = Vector3.Lerp(camOriginPos, camStartPos, curAnimTime / startAnimTime);
+            mainCamParent.transform.position = Vector3.Lerp(camOriginPos, camStartPos, curAnimTime / startAnimTime);
             if (mainCam.orthographic)
             {
                 mainCam.orthographicSize = Mathf.Lerp(camOriginSize, camStartSize, curAnimTime / startAnimTime);

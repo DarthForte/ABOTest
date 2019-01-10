@@ -41,7 +41,10 @@ public class CameraController : MonoBehaviour
                 {
                     Vector3 posMoved = (mousePos - Input.mousePosition) * panSpeed;
                     Vector3 curPos = transform.position;
-                    transform.position = new Vector3(curPos.x + posMoved.x, curPos.y, curPos.z + posMoved.y);
+                    Vector3 newPos = curPos + (transform.right * posMoved.x);
+                    newPos = newPos + (transform.forward * posMoved.y);
+                    transform.position = newPos;
+                    //transform.position = new Vector3(curPos.x + posMoved.x, curPos.y, curPos.z + posMoved.y);
                     mousePos = Input.mousePosition;
                 }
 
