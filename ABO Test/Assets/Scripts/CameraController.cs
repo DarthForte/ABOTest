@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Rewired;
 
 public class CameraController : MonoBehaviour
 {
@@ -12,9 +13,17 @@ public class CameraController : MonoBehaviour
     }
 
     public controllerState contState;
+    public int playerId = 0;
     private Vector3 mousePos;
     public Camera mainCamera;
     public float panSpeed = 1f;
+    public float mouseSensitivity = 0.1f;
+    private Player player;
+
+    void Awake()
+    {
+        player = ReInput.players.GetPlayer(playerId);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -39,12 +48,8 @@ public class CameraController : MonoBehaviour
             case controllerState.DRAGGING:
                 if (Input.GetMouseButton(0))//currently dragging
                 {
-                    Vector3 posMoved = (mousePos - Input.mousePosition) * panSpeed;
-                    Vector3 curPos = transform.position;
-                    Vector3 newPos = curPos + (transform.right * posMoved.x);
-                    newPos = newPos + (transform.forward * posMoved.y);
-                    transform.position = newPos;
-                    //transform.position = new Vector3(curPos.x + posMoved.x, curPos.y, curPos.z + posMoved.y);
+                    Vector3 posMoved = (mousePos - Input.mousePosition) * mouseSensitivity;
+                    MoveCamera(posMoved);
                     mousePos = Input.mousePosition;
                 }
 
@@ -55,9 +60,31 @@ public class CameraController : MonoBehaviour
                 }
                 break;
         }
+        if (contState != controllerState.INACTIVE)
+        {
+            Vector2 controllerDir = new Vector3(0, 0, 0);
+            controllerDir.x = player.GetAxis("MoveX");
+            controllerDir.y = player.GetAxis("MoveY");
+            if (controllerDir.x != 0.0f || controllerDir.y != 0.0f)
+            {
+                Vector3 posMoved = new Vector3(0, 0, 0);
+                posMoved.x = controllerDir.x;
+                posMoved.y = controllerDir.y;
+                posMoved = posMoved * panSpeed * Time.deltaTime;
+                MoveCamera(posMoved);
+            }
+        }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Application.Quit();
         }
+    }
+
+    void MoveCamera(Vector3 posMoved)
+    {
+        Vector3 curPos = transform.position;
+        Vector3 newPos = curPos + (transform.right * posMoved.x);
+        newPos = newPos + (transform.forward * posMoved.y);
+        transform.position = newPos;
     }
 }

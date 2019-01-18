@@ -386,19 +386,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Scripts
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets
+  - Assets/Scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Forte\Git Projects\ABOTest\ABO Test
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 18260000
-    m_LastClickedID: 9752
+    m_SelectedIDs: 7a270000
+    m_LastClickedID: 10106
     m_ExpandedIDs: 000000001826000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -454,7 +454,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -546,23 +546,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 66280000
-      m_LastClickedID: 10342
-      m_ExpandedIDs: d4fbffff9c280000
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 2466fcff4666fcff1e68fcffd4fbffff9c280000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: MainCamParent
-        m_OriginalName: MainCamParent
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 10396
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 4}
       m_SearchString: 
@@ -604,9 +604,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 3.6855469, y: 8.794922, z: -6.546875}
+    m_Target: {x: 28.728523, y: 20, z: -28.889277}
     speed: 2
-    m_Value: {x: 3.6855469, y: 8.794922, z: -6.546875}
+    m_Value: {x: 28.728523, y: 20, z: -28.889277}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -634,13 +634,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: -0.30738476, y: 0.36164373, z: -0.12765002, w: -0.87088114}
+    m_Target: {x: -0.16412401, y: 0.07154184, z: -0.011939564, w: -0.98376954}
     speed: 2
-    m_Value: {x: -0.30738476, y: 0.36164373, z: -0.12765002, w: -0.87088114}
+    m_Value: {x: -0.16412401, y: 0.07154184, z: -0.011939564, w: -0.98376954}
   m_Size:
-    m_Target: 19.753176
+    m_Target: 22
     speed: 2
-    m_Value: 19.753176
+    m_Value: 22
   m_Ortho:
     m_Target: 0
     speed: 2
